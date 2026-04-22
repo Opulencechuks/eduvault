@@ -15,7 +15,7 @@ export default function MaterialDetailsPage() {
 		title: "ECO 201 – Principles of Microeconomics (Complete Lecture Notes)",
 		description:
 			"A detailed 60-page lecture note covering demand, supply, market equilibrium, elasticity, and production theory — essential for first and second-year students preparing for exams.",
-		price: "0.25 CELO",
+		price: "0.25 XLM",
 		likes: "18.6K",
 		reviews: "76 Reviews",
 		image: "/images/image2.jpg",
@@ -89,8 +89,8 @@ export default function MaterialDetailsPage() {
 							<div className="flex items-center gap-4 mt-4">
 								<div className="flex items-center gap-2">
 									<Image
-										src="/images/celo.png"
-										alt="Celo"
+										src="/images/stellar.png"
+										alt="Stellar"
 										width={28}
 										height={28}
 										className="rounded-full"
@@ -178,7 +178,7 @@ export default function MaterialDetailsPage() {
 									<strong className="text-gray-800">Verification:</strong>
 									{material.author.verified ? (
 										<span className="text-green-600 flex items-center gap-1 text-xs font-medium">
-											<FaCheckCircle /> Minted on Celo
+											<FaCheckCircle /> Ready for Soroban
 										</span>
 									) : (
 										<span className="text-red-500 text-xs font-medium">
@@ -216,7 +216,7 @@ export default function MaterialDetailsPage() {
 										</h3>
 										<p className="text-xs text-gray-500 mb-2">by Chijioke M.</p>
 										<div className="flex justify-between items-center text-xs text-gray-500">
-											<span>0.25 CELO</span>
+											<span>0.25 XLM</span>
 											<span>21.5K Likes</span>
 										</div>
 									</div>

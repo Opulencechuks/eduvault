@@ -18,7 +18,7 @@ export default function DiscoverMaterials() {
             title: "CHM 112 – Lab Report Template (UNN)",
             author: "Chijioke M.",
             likes: "21.5K",
-            bid: "0.25 CELO",
+            bid: "0.25 XLM",
             time: "01:09:40",
             image: imageOptions[Math.floor(Math.random() * imageOptions.length)],
         })),

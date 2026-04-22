@@ -7,7 +7,7 @@ EduVault is an educational content marketplace that helps educators and student 
 
 ## Status
 
-EduVault is an in-development project. This repository already contains a working Next.js prototype for creator profiles, content uploads, IPFS-backed metadata, and marketplace flows. It also includes an earlier EVM/Celo proof of concept for tokenized ownership. The Drip Wave submission proposes the next milestone: moving payments, licensing, and entitlement checks onto Stellar and Soroban.
+EduVault is an in-development project. This repository already contains a working Next.js prototype for creator profiles, content uploads, IPFS-backed metadata, and marketplace flows. It also preserves an archived EVM/Celo proof of concept for tokenized ownership under `archive/legacy-evm/`. The Drip Wave submission proposes the next milestone: moving payments, licensing, and entitlement checks onto Stellar and Soroban.
 
 ## Overview
 
@@ -106,7 +106,7 @@ Stellar documentation confirms that Soroban is integrated into the existing Stel
 - Storage: MongoDB for profiles and catalog metadata
 - File persistence: IPFS pinning through Pinata
 - Wallet prototype: wagmi, RainbowKit, WalletConnect, and Coinbase Wallet support
-- Smart contract prototype: Solidity ERC-721 proof of concept in [`contracts/EduVault.sol`](contracts/EduVault.sol)
+- Smart contract prototype: archived Solidity ERC-721 proof of concept in [`archive/legacy-evm/contracts/EduVault.sol`](archive/legacy-evm/contracts/EduVault.sol)
 
 ### Proposed Stellar-native architecture
 
@@ -141,7 +141,23 @@ Stellar documentation confirms that Soroban is integrated into the existing Stel
 
 ### Current prototype
 
-This repository currently includes an ERC-721 contract and EVM wallet integration used to validate the upload-to-ownership flow during early prototyping. That contract is not the final blockchain strategy for the Drip Wave submission.
+This repository preserves an archived ERC-721 contract and EVM wallet integration used to validate the upload-to-ownership flow during early prototyping. That contract is not the final blockchain strategy for the Drip Wave submission and should not be extended for new product work.
+
+## Legacy EVM Prototype
+
+The Solidity/Celo prototype is archived under `archive/legacy-evm/`.
+
+- It is retained for historical reference and tests only.
+- It must not be treated as the production chain layer.
+- New product work should target Stellar and Soroban instead.
+
+## Migration Checklist
+
+- Replace wallet-specific EVM assumptions in the UI with Stellar wallet flows.
+- Implement Soroban material registration and entitlement checks.
+- Replace legacy purchase/mint UI with Soroban-backed publishing and checkout.
+- Remove any production environment assumptions that reference Celo or the archived contract.
+- Keep legacy prototype tests isolated under archived contract checks only.
 
 ### Proposed Stellar implementation
 

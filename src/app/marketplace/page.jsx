@@ -12,70 +12,70 @@ export default function MarketPage() {
 			title: "CHM 112 – Lab Report Template (UNN)",
 			author: "Chijioke M.",
 			likes: "21.5K",
-			price: "0.25 CELO",
+			price: "0.25 XLM",
 			image: "/images/image5.jpg",
 		},
 		{
 			title: "MTH 101 – Calculus Cheat Sheet",
 			author: "Ada O.",
 			likes: "9.2K",
-			price: "0.10 CELO",
+			price: "0.10 XLM",
 			image: "/images/image1.jpg",
 		},
 		{
 			title: "BIO 201 – Anatomy Notes",
 			author: "Ngozi A.",
 			likes: "4.8K",
-			price: "0.15 CELO",
+			price: "0.15 XLM",
 			image: "/images/image2.jpg",
 		},
 		{
 			title: "ENG 305 – Research Paper Guide",
 			author: "Emeka K.",
 			likes: "1.2K",
-			price: "0.05 CELO",
+			price: "0.05 XLM",
 			image: "/images/image3.jpg",
 		},
 		{
 			title: "PHY 110 – Problem Sets",
 			author: "Uche N.",
 			likes: "12.3K",
-			price: "0.20 CELO",
+			price: "0.20 XLM",
 			image: "/images/image4.jpg",
 		},
 		{
 			title: "COM 210 – Software Eng. Slides",
 			author: "Tunde L.",
 			likes: "8.6K",
-			price: "0.30 CELO",
+			price: "0.30 XLM",
 			image: "/images/image5.jpg",
 		},
 		{
 			title: "ECO 102 – Microeconomics Past Questions",
 			author: "Funmi S.",
 			likes: "3.4K",
-			price: "0.08 CELO",
+			price: "0.08 XLM",
 			image: "/images/image6.jpg",
 		},
 		{
 			title: "MED 401 – Pharmacology Summary",
 			author: "Dr. Amina",
 			likes: "6.7K",
-			price: "0.35 CELO",
+			price: "0.35 XLM",
 			image: "/images/image7.jpg",
 		},
 		{
 			title: "PSY 100 – Study Tips & Mnemonics",
 			author: "Kemi R.",
 			likes: "2.1K",
-			price: "0.03 CELO",
+			price: "0.03 XLM",
 			image: "/images/image8.jpg",
 		},
 		{
 			title: "PSY 101 – Study Tips & Mnemonics",
 			author: "Emma R.",
 			likes: "2.1K",
-			price: "0.03 CELO",
+			price: "0.03 XLM",
 			image: "/images/image9.jpg",
 		},
 	];
@@ -144,8 +144,8 @@ export default function MarketPage() {
 
 						<div className="w-40 h-40 mt-6 md:mt-0 flex items-center justify-center">
 							<Image
-								src="/images/celo.png"
-								alt="Celo Token"
+								src="/images/stellar.png"
+								alt="Stellar token"
 								width={144}
 								height={144}
 								className="object-contain"
@@ -230,7 +230,7 @@ export default function MarketPage() {
 										<span className="text-sm font-semibold text-gray-800">
 											{material.price}
 										</span>
-										<span className="text-xs text-gray-400">CELO</span>
+										<span className="text-xs text-gray-400">XLM</span>
 									</div>
 								</div>
 							</Link>
