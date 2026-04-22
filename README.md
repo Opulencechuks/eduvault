@@ -265,6 +265,7 @@ See [`.env.example`](.env.example) for the canonical template.
 - Placeholder secrets such as `replace-with-a-long-random-string` fail validation in production.
 - CI runs dependency audits and a secret/placeholder scan before merge.
 - Security headers are set centrally in `next.config.mjs` for all application routes.
+- Dashboard middleware verifies the signed session token before protected routes render.
 
 ### Production vs Local Environment
 
