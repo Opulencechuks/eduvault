@@ -35,7 +35,7 @@ describe('Modal Accessibility Baseline', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('should trap focus and close on Escape key', async () => {
+  it('should close on Escape key', async () => {
     render(
       <Modal isOpen={true} onClose={onClose} title="Test Modal">
         <button aria-label="Inner Button">Click Me</button>
