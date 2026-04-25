@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { useAccount } from "wagmi";
@@ -125,10 +126,12 @@ export default function UploadForm() {
         <div className="flex items-center gap-4">
           <input type="file" accept="image/*" onChange={handleThumbChange} className="text-sm" />
           {thumbPreview && (
-            <img
+            <Image
               src={thumbPreview}
               alt="Thumbnail Preview"
-              className="w-16 h-16 rounded object-cover border"
+              width={64}
+              height={64}
+              className="rounded object-cover border"
             />
           )}
         </div>
