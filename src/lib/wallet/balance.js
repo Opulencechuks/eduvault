@@ -1,10 +1,10 @@
 import { horizon } from './kit';
 
 export const BalancesStatus = Object.freeze({
-  Idle: 'idle',           // never fetched
+  Idle: 'idle',           
   Loading: 'loading',
   Loaded: 'loaded',
-  Unfunded: 'unfunded',   // valid address, no on-chain account yet
+  Unfunded: 'unfunded', 
   Error: 'error',
 });
 
@@ -32,7 +32,6 @@ export async function fetchBalances(address) {
 
   const native =
     balances.find((b) => b.assetType === 'native') ??
-    // Shouldn't happen for a funded account, but keep the type honest.
     { assetType: 'native', balance: '0' };
 
   return {

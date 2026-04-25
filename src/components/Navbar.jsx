@@ -129,7 +129,7 @@ export default function Navbar() {
 
 				{/* Mobile Dropdown Menu */}
 				{menuOpen && (
-					<div className="z-[100000] absolute top-20 left-0 w-full bg-white border-t border-gray-200 shadow-sm flex flex-col items-center space-y-4 py-6 text-gray-700 md:hidden z-50">
+					<div className="absolute top-20 left-0 w-full bg-white border-t border-gray-200 shadow-sm flex flex-col items-center space-y-4 py-6 text-gray-700 md:hidden z-50">
 						<Link href="/#howitwork">How It Works</Link>
 						<Link href="/marketplace">Marketplace</Link>
 						<Link href="https://edu-vault.gitbook.io/edu-vault-docs/">

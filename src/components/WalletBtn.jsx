@@ -105,12 +105,6 @@ export function WalletButton() {
 
     case WalletStatus.Error:
       return (
-        // <div className={`${CARD} border-red-200 bg-red-50/70`}>
-        //   {/* <p className="text-sm text-red-700">
-        //     Something went wrong:{' '}
-        //     <span className="font-mono text-xs">{state.error.message}</span>
-        //   </p> */}
-        // </div>
         <button onClick={connect} className={BTN_PRIMARY}>
           Connect wallet
         </button>

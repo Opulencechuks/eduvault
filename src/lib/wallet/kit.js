@@ -16,7 +16,11 @@ export const NETWORK_PASSPHRASE =
   NETWORK === 'PUBLIC' ? Networks.PUBLIC : Networks.TESTNET;
 
 
-const HORIZON_URL = 'https://horizon.stellar.org'
+const HORIZON_URL =
+  NETWORK === 'PUBLIC'
+    ? 'https://horizon.stellar.org'
+    : 'https://horizon-testnet.stellar.org';
+
 export const horizon = new Horizon.Server(HORIZON_URL);
 
 let initialized = false;
