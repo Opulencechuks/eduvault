@@ -107,6 +107,7 @@ Stellar documentation confirms that Soroban is integrated into the existing Stel
 - File persistence: IPFS pinning through Pinata
 - Wallet prototype: wagmi, RainbowKit, WalletConnect, and Coinbase Wallet support
 - Smart contract prototype: Solidity ERC-721 proof of concept in [`contracts/EduVault.sol`](contracts/EduVault.sol)
+- Soroban contract work: initial Rust `MaterialRegistry` implementation in [`soroban/contracts/material-registry`](soroban/contracts/material-registry)
 
 ### Proposed Stellar-native architecture
 
@@ -148,13 +149,15 @@ This repository currently includes an ERC-721 contract and EVM wallet integratio
 The proposed Stellar design is intentionally practical:
 
 - `MaterialRegistry` contract
-  - Registers a material ID, creator address, metadata hash, price, accepted asset, and rights hash.
+  - Registers a material ID, creator address, metadata hash, rights hash, accepted-asset quotes, and payout shares.
 - `PurchaseManager` contract
-  - Accepts payment in XLM or approved Stellar assets, records entitlement state, and emits purchase events.
-- `PayoutConfig` logic
-  - Supports creator payouts, treasury fees, and later scholarship or referral splits.
+  - Accepts payment in approved Stellar assets, records entitlement state, emits purchase events, and routes creator and treasury payouts.
+- Platform configuration
+  - Maintains the allowed-asset list, treasury recipient, and capped platform fee used by `PurchaseManager`.
 
 Content files stay off-chain. The chain is used for settlement, rights registration, and access verification.
+
+The detailed Soroban storage model, event contract, payout rules, and migration stance are documented in [`docs/soroban-contract-architecture.md`](docs/soroban-contract-architecture.md).
 
 ## Installation
 
@@ -164,6 +167,7 @@ Examples below use `npm`, but `pnpm` or `bun` can also be used.
 
 - Node.js 20+
 - npm 10+ or pnpm
+- Rust toolchain with `cargo` and `wasm32v1-none` target for Soroban contract development
 - MongoDB 7+ or Docker
 - Pinata credentials for file uploads
 - A wallet for testing current prototype flows
@@ -199,13 +203,20 @@ Run the Solidity prototype tests:
 npm run test:contracts
 ```
 
+Run the Soroban `MaterialRegistry` tests:
+
+```bash
+cd soroban
+cargo test
+```
+
 Run backend validation, rate-limit, and indexer tests:
 
 ```bash
 npm run test:backend
 ```
 
-Run the full local test baseline:
+Run the current Node-side local baseline:
 
 ```bash
 npm test
@@ -240,8 +251,10 @@ See [`.env.example`](.env.example) for the canonical template.
 | `NEXT_PUBLIC_STELLAR_NETWORK` | Planned | Target Stellar network for Soroban milestone |
 | `NEXT_PUBLIC_STELLAR_RPC_URL` | Planned | Soroban RPC endpoint |
 | `NEXT_PUBLIC_HORIZON_URL` | Planned | Horizon endpoint for indexing and account lookups |
-| `NEXT_PUBLIC_SOROBAN_CONTRACT_ID` | Planned | Contract ID for entitlement and payment logic |
-| `NEXT_PUBLIC_ACCEPTED_ASSET` | Planned | Default accepted payment asset such as `XLM` or `USDC` |
+| `NEXT_PUBLIC_MATERIAL_REGISTRY_CONTRACT_ID` | Planned | Contract ID for registry reads and material lifecycle events |
+| `NEXT_PUBLIC_PURCHASE_MANAGER_CONTRACT_ID` | Planned | Contract ID for purchase, entitlement, and payout events |
+| `NEXT_PUBLIC_SOROBAN_CONTRACT_ID` | Legacy fallback | Single-contract fallback used until the two-contract env split is fully adopted |
+| `NEXT_PUBLIC_ACCEPTED_ASSET` | Planned | Default display asset such as `XLM` or `USDC`; actual accepted assets are material-level quotes intersected with the platform allowlist |
 
 ## Usage
 
@@ -267,6 +280,8 @@ See [`.env.example`](.env.example) for the canonical template.
 - Finalize README, contribution docs, and maintainership materials
 - Clean up prototype flows and remove stale chain-specific UI references
 - Model the Soroban contract interfaces for registry and entitlement logic
+
+The canonical architecture note for that milestone lives in [`docs/soroban-contract-architecture.md`](docs/soroban-contract-architecture.md).
 
 ### Next milestone
 
