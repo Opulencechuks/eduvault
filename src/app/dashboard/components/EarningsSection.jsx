@@ -11,22 +11,22 @@ export default function EarningsSection() {
 			changeColor: "text-green-600",
 		},
 		{
-			label: "Uploaded Notes",
-			value: "7 NOTES",
+			label: "Active Materials",
+			value: "7",
 			change: "+8.1%",
 			iconColor: "text-green-600",
 			changeColor: "text-green-600",
 		},
 		{
-			label: "Downloads",
+			label: "Total Downloads",
 			value: "182",
 			change: "-5.3%",
 			iconColor: "text-red-600",
 			changeColor: "text-red-600",
 		},
 		{
-			label: "Rank",
-			value: "#12 UNN",
+			label: "Creator Rank",
+			value: "#12",
 			change: "+3.2%",
 			iconColor: "text-green-600",
 			changeColor: "text-green-600",
@@ -34,25 +34,26 @@ export default function EarningsSection() {
 	];
 
 	return (
-		<div className="grid sm:grid-cols-2 gap-4">
+		<div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
 			{stats.map((item, index) => (
 				<div
 					key={index}
-					className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm"
+					className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
 				>
-					<div className="flex justify-between items-center mb-2">
-						<h3 className="text-sm text-gray-500">{item.label}</h3>
-						{item.change.startsWith("+") ? (
-							<FaArrowUp className={`w-4 h-4 ${item.iconColor}`} />
-						) : (
-							<FaArrowDown className={`w-4 h-4 ${item.iconColor}`} />
-						)}
+					<div className="flex justify-between items-center mb-3">
+						<h3 className="text-sm font-medium text-gray-500">{item.label}</h3>
+						<div className={`p-1.5 rounded-full ${item.change.startsWith("+") ? 'bg-green-50' : 'bg-red-50'}`}>
+							{item.change.startsWith("+") ? (
+								<FaArrowUp className={`w-3 h-3 ${item.iconColor}`} />
+							) : (
+								<FaArrowDown className={`w-3 h-3 ${item.iconColor}`} />
+							)}
+						</div>
 					</div>
-					<div className="text-lg font-bold">{item.value}</div>
-					<p className={`text-sm ${item.changeColor}`}>{item.change}</p>
+					<div className="text-2xl font-bold mb-1">{item.value}</div>
+					<p className={`text-xs font-medium ${item.changeColor}`}>{item.change} from last month</p>
 				</div>
 			))}
 		</div>
 	);
 }
-
